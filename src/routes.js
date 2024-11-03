@@ -1,10 +1,15 @@
-import Home from './Home'
-import AuthGuard from '../src/Admin/Components/AuthGuard'
-import Dashboard from './Admin/Pages/Dashboard'
+import Home from './Home';
+import AuthGuard from '../src/Admin/Components/AuthGuard';
+import Dashboard from './Admin/Pages/Dashboard';
+import SignIn from './Admin/Pages/SignIn'
 const routes = [
     {
         path: "/home",
         element: <Home />,
+    },
+    {
+        path: "/admin/signin",
+        element: <SignIn />,
     },
     {
         path: "/",
