@@ -1,6 +1,6 @@
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import routes from "./routes";
-import { createTheme , ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 
@@ -30,10 +30,20 @@ const theme1 = createTheme({
     },
 
     palette: {
-        primary: {
-            main: "#152336",
+        master: {
+            main: "#1D1C1D",
             light: "#1e2e45",
             hover: "#1e2e45",
+        },
+        primary: {
+            main: "#000000",
+            light: "#ffffff",
+            hover: "#949494",
+        },
+        accent: {
+            main: '#ff600a',
+            light: '#ffffff',
+            hover:'#292929'
         },
         error: {
             main: "#FF0000",
@@ -60,7 +70,7 @@ const theme1 = createTheme({
         primary: {
             main: "#152336",
             light: "#FFFFFF",
-            mainLight:"#aaa"
+            mainLight: "#aaa"
         },
 
         secondary: {
@@ -89,7 +99,7 @@ const theme1 = createTheme({
         },
 
         fontFamily: "'Poppins', sans-serif !important",
-        
+
         h1: {
             fontSize: "1.8rem",
         },
@@ -109,8 +119,8 @@ const theme1 = createTheme({
         h5: {
             fontSize: "1rem",
         },
-        h6:{
-            fontSize:"0.8rem"
+        h6: {
+            fontSize: "0.8rem"
         },
         fontWeightBold: "600",
         fontWeightRegular: "400",
@@ -120,15 +130,15 @@ const theme1 = createTheme({
 });
 const Routes = () => useRoutes(routes);
 function App() {
-  return (
-    <BrowserRouter>
-    <Provider store={store}>
-    <ThemeProvider theme={theme1}>
-      <Routes />
-      </ThemeProvider>
-      </Provider>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <ThemeProvider theme={theme1}>
+                    <Routes />
+                </ThemeProvider>
+            </Provider>
+        </BrowserRouter>
+    );
 }
 
 export default App;
