@@ -1,6 +1,5 @@
 import { Grid } from '@mui/material';
 import React from 'react';
-import SidebarWidget from '../components/SidebarWidget';
 
 const MyInfo = () => {
   return (
@@ -12,8 +11,6 @@ const MyInfo = () => {
       border:'2px solid white'
     }}
     >
-
-      <SidebarWidget />
     </Grid>
   )
 }

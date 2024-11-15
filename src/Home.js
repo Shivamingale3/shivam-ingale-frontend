@@ -2,6 +2,7 @@ import { Grid } from '@mui/system'
 import React, { useEffect, useState } from 'react'
 import MyProfile from './components/MyProfile'
 import MyInfo from './components/MyInfo'
+import SidebarWidget from './components/SidebarWidget'
 import { useTheme } from '@emotion/react'
 
 const Home = () => {
@@ -26,8 +27,9 @@ const Home = () => {
     <Grid
       aria-label='home-parent-grid'
       sx={{
-        display: 'inline-flex',
         backgroundColor: theme.palette.accent.hover,
+        display: 'flex',
+        flexDirection: 'row'
       }}
     >
       <Grid
@@ -42,9 +44,20 @@ const Home = () => {
 
       <Grid
         aria-label='home-myInfo-grid'
-        width={'157vh'}
       >
         <MyInfo />
+      </Grid>
+
+      <Grid
+        aria-label='home-sidebar-grid'
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginRight:'25px'
+        }}
+      >
+        <SidebarWidget />
       </Grid>
     </Grid>
   );
