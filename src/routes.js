@@ -10,6 +10,7 @@ import Specialization from './components/Specialization';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import ContactMe from './components/ContactMe';
+import NotFound from './pages/NotFound';
 const routes = [
     {
         path: "/",
@@ -63,6 +64,10 @@ const routes = [
                 <Dashboard />
             </AuthGuard>
         ),
+    },
+    {
+        path: "*",
+        element: <NotFound />,
     },
 ];
 
