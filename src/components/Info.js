@@ -17,7 +17,8 @@ const Info = () => {
       }}
     >
       <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-        Hi From <Typography variant="h4" sx={{ fontWeight: "bold" }} color={colorTheme.palette.accent.main}>Shivam, </Typography>
+        Hi!<br />
+        I am <Typography variant="h4" sx={{ fontWeight: "bold" }} color={colorTheme.palette.accent.main}>Shivam, </Typography>
         Software Developer
       </Typography>
       <Typography variant="body1" sx={{ marginY: "20px" }}>
