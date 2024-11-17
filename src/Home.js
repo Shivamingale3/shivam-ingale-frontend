@@ -1,66 +1,63 @@
-import { Grid } from '@mui/system'
-import React, { useEffect, useState } from 'react'
-import MyProfile from './components/MyProfile'
-import MyInfo from './components/MyInfo'
-import SidebarWidget from './components/SidebarWidget'
-import { useTheme } from '@emotion/react'
+import styled from "@emotion/styled";
+import { CssBaseline, Grid2 } from "@mui/material";
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Profile from './components/Profile';
+import Sidebar from './components/Sidebar';
 
-const Home = () => {
-  const theme = useTheme();
-  const [data, setData] = useState({});
+const Root = styled.div`
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #1D1C1D;
+`;
 
-  const getData = async () => {
-    try {
-      setData({});
-      setData(data)
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
 
-  useEffect(() => {
-    getData();
-    // }, []);
-  });
+export default function Home({ children }) {
+
 
   return (
-    <Grid
-      aria-label='home-parent-grid'
-      sx={{
-        backgroundColor: theme.palette.accent.hover,
-        display: 'flex',
-        flexDirection: 'row'
-      }}
-    >
-      <Grid
-        aria-label='home-myPofile-grid'
-        display={'flex'}
-        justifyContent={'center'}
-        alignItems={'center'}
-        padding={5}
-      >
-        <MyProfile />
-      </Grid>
-
-      <Grid
-        aria-label='home-myInfo-grid'
-      >
-        <MyInfo />
-      </Grid>
-
-      <Grid
-        aria-label='home-sidebar-grid'
+    <Root>
+      <CssBaseline />
+      <Grid2
+        aria-label="profile-grid"
         sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginRight:'25px'
+          width: '20vw',
+          height: '100vh'
         }}
       >
-        <SidebarWidget />
-      </Grid>
-    </Grid>
-  );
-};
 
-export default Home;
+        <Profile />
+      </Grid2>
+      <Grid2
+        aria-label="middle-grid"
+        item
+        color={'white'}
+        sx={{
+          minWidth: '70vw',
+          minHeight: '100vh',
+          border: '2px solid red'
+        }}
+      >
+        {children}
+        <Outlet />
+      </Grid2>
+      <Grid2
+        aria-label="sidebar-grid"
+        sx={{
+          display: 'flex',
+          justifyContent: 'end',
+          alignItems: 'center',
+          width: '10vw',
+          height: '100vh',
+          paddingRight: '1%'
+        }}
+      >
+        <Sidebar />
+      </Grid2>
+    </Root>
+  );
+}
