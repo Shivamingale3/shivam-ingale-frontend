@@ -1,8 +1,12 @@
+import { useTheme } from "@emotion/react";
+import { GitHub, Instagram, LinkedIn, Mail, PictureAsPdf } from "@mui/icons-material";
+import { Avatar, Box, Button, Grid2, IconButton, Typography } from "@mui/material";
 import React from "react";
-import { Box, Typography, Button, Avatar, Stack } from "@mui/material";
-import { Facebook, Twitter, Instagram } from "@mui/icons-material";
+
 
 const Profile = () => {
+  const colorTheme = useTheme();
+
   return (
     <Box
       sx={{
@@ -10,29 +14,222 @@ const Profile = () => {
         backgroundColor: "#1D1C1D",
         color: "white",
         textAlign: "center",
-        borderRadius: "8px",
-        border:"2px solid red"
+        borderRadius: "2.5%",
+        borderColor: [colorTheme.palette.accent.hover],
+        border: '1px solid',
       }}
     >
-      <Avatar
-        alt="Youlakou"
-        src="https://via.placeholder.com/150"
-        sx={{ width: 100, height: 100, margin: "0 auto" }}
-      />
-      <Typography variant="h5" sx={{ marginTop: "10px", color: "#ff600a" }}>
-        Shivam
-      </Typography>
-      <Typography variant="body2" sx={{ color: "#aaa" }}>
+      <Grid2
+        sx={{
+          display: 'flex',
+          textAlign: 'start',
+          flexWrap: 'nowrap'
+        }}
+      >
+        <Typography
+          fontFamily={["Crete Round", 'serif']}
+          letterSpacing={2}
+          fontSize={35}
+          color={colorTheme.palette.accent.main}
+        >
+          S
+        </Typography>
+        <Typography
+          fontFamily={["Crete Round", 'serif']}
+          letterSpacing={2}
+          fontSize={35}
+          color={colorTheme.palette.accent.light}
+        >
+          hivam
+        </Typography>
+      </Grid2>
+      <Grid2 sx={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Avatar
+          variant="square"
+          alt="Shivam"
+          src="avatar.jpeg"
+          sx={{
+            borderRadius: "16%",
+            width: "75%",
+            height: "75%",
+          }} />
+      </Grid2>
+      <Typography
+        fontFamily={["Crete Round", 'serif']}
+        letterSpacing={2}
+        fontSize={20}
+        color={colorTheme.palette.accent.light}
+      >
         Based in India
       </Typography>
-      <Typography variant="body1" sx={{ marginY: "10px" }}>
+      <Typography
+        fontFamily={["Crete Round", 'serif']}
+        letterSpacing={2}
+        fontSize={20}
+        color={colorTheme.palette.accent.hover}
+      >
         Junior Software Developer
       </Typography>
-      <Stack direction="row" justifyContent="center" spacing={2} sx={{ mt: 2 }}>
-        <Facebook sx={{ color: "white", cursor: "pointer" }} />
-        <Twitter sx={{ color: "white", cursor: "pointer" }} />
-        <Instagram sx={{ color: "white", cursor: "pointer" }} />
-      </Stack>
+      {/* <Grid2 container direction="row" justifyContent="center" spacing={2}>
+        <IconButton>
+          <Instagram sx={{ color: "white", cursor: "pointer" }} />
+          <Typography>Instagram</Typography>
+        </IconButton>
+        <IconButton>
+          <GitHub sx={{ color: "white", cursor: "pointer" }} />
+          <Typography>GitHub</Typography>
+        </IconButton>
+        <IconButton>
+          <LinkedIn sx={{ color: "white", cursor: "pointer" }} />
+          <Typography>LinkedIn</Typography>
+        </IconButton>
+        <IconButton>
+          <Mail sx={{ color: "white", cursor: "pointer" }} />
+          <Typography>Mail</Typography>
+        </IconButton>
+        <IconButton>
+          <PictureAsPdf sx={{ color: "white", cursor: "pointer" }} />
+          <Typography>Download Resume</Typography>
+        </IconButton>
+      </Grid2> */}
+      <Grid2 container direction="row" justifyContent="center" spacing={2}>
+        {/* Instagram Icon */}
+        <IconButton
+          sx={{
+            position: "relative",
+            flexDirection: "column",
+            "&:hover .icon-label": {
+              opacity: 1, // Show text on hover
+            },
+          }}
+        >
+          <Instagram sx={{ color: "white", cursor: "pointer" }} />
+          <Typography
+            className="icon-label"
+            sx={{
+              opacity: 0,
+              transition: "opacity 0.3s",
+              position: "absolute",
+              bottom: "-20px", // Adjust as needed
+              color: "white",
+              pointerEvents: "none",
+            }}
+          >
+            Instagram
+          </Typography>
+        </IconButton>
+
+        {/* GitHub Icon */}
+        <IconButton
+          sx={{
+            position: "relative",
+            flexDirection: "column",
+            "&:hover .icon-label": {
+              opacity: 1,
+            },
+          }}
+        >
+          <GitHub sx={{ color: "white", cursor: "pointer" }} />
+          <Typography
+            className="icon-label"
+            sx={{
+              opacity: 0,
+              transition: "opacity 0.3s",
+              position: "absolute",
+              bottom: "-20px",
+              color: "white",
+              pointerEvents: "none",
+            }}
+          >
+            GitHub
+          </Typography>
+        </IconButton>
+
+        {/* LinkedIn Icon */}
+        <IconButton
+          sx={{
+            position: "relative",
+            flexDirection: "column",
+            "&:hover .icon-label": {
+              opacity: 1,
+            },
+          }}
+        >
+          <LinkedIn sx={{ color: "white", cursor: "pointer" }} />
+          <Typography
+            className="icon-label"
+            sx={{
+              opacity: 0,
+              transition: "opacity 0.3s",
+              position: "absolute",
+              bottom: "-20px",
+              color: "white",
+              pointerEvents: "none",
+            }}
+          >
+            LinkedIn
+          </Typography>
+        </IconButton>
+
+        {/* Mail Icon */}
+        <IconButton
+          sx={{
+            position: "relative",
+            flexDirection: "column",
+            "&:hover .icon-label": {
+              opacity: 1,
+            },
+          }}
+        >
+          <Mail sx={{ color: "white", cursor: "pointer" }} />
+          <Typography
+            className="icon-label"
+            sx={{
+              opacity: 0,
+              transition: "opacity 0.3s",
+              position: "absolute",
+              bottom: "-20px",
+              color: "white",
+              pointerEvents: "none",
+            }}
+          >
+            Mail
+          </Typography>
+        </IconButton>
+
+        {/* Download Resume Icon */}
+        <IconButton
+          className="icon-image"
+          sx={{
+            position: "relative",
+            flexDirection: "column",
+            "&:hover .icon-label ": {
+              opacity: 1,
+            },
+          }}
+        >
+          <PictureAsPdf sx={{ color: "white", cursor: "pointer" }} />
+          <Typography
+            className="icon-label"
+            sx={{
+              opacity: 0,
+              transition: "opacity 0.3s",
+              position: "absolute",
+              bottom: "-50px",
+              color: "white",
+              pointerEvents: "none",
+            }}
+          >
+            Download Resume
+          </Typography>
+        </IconButton>
+      </Grid2>
       <Button
         variant="contained"
         sx={{

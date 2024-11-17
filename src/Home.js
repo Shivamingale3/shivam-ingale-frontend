@@ -26,7 +26,8 @@ export default function Home({ children }) {
           justifyContent: 'center',
           alignItems: 'center',
           width: '20vw',
-          height: '100vh'
+          height: '100vh',
+          padding: '20px',
         }}
       >
 
@@ -39,7 +40,6 @@ export default function Home({ children }) {
         sx={{
           minWidth: '70vw',
           minHeight: '100vh',
-          border: '2px solid red'
         }}
       >
         {children}
