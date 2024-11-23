@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react";
 import { GitHub, Instagram, LinkedIn, Mail, PictureAsPdf } from "@mui/icons-material";
-import { Avatar, Box, Button, Grid2, IconButton, Typography } from "@mui/material";
+import { Avatar, Button, Grid2, IconButton, Typography } from "@mui/material";
 import React from "react";
 
 
@@ -8,8 +8,12 @@ const Profile = () => {
   const colorTheme = useTheme();
 
   return (
-    <Box
+    <Grid2
       sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '80%',
+        width: '80%',
         padding: "20px",
         backgroundColor: "#1D1C1D",
         color: "white",
@@ -18,6 +22,7 @@ const Profile = () => {
         borderColor: [colorTheme.palette.accent.hover],
         border: '1px solid',
       }}
+      gap={4}
     >
       <Grid2
         sx={{
@@ -44,8 +49,7 @@ const Profile = () => {
         </Typography>
       </Grid2>
       <Grid2 sx={{
-        width: '100%',
-        height: '100%',
+
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
@@ -55,9 +59,9 @@ const Profile = () => {
           alt="Shivam"
           src="avatar.jpeg"
           sx={{
-            borderRadius: "16%",
-            width: "75%",
-            height: "75%",
+            height: '100%',
+            width: '75%',
+            borderRadius: "16%"
           }} />
       </Grid2>
       <Typography
@@ -241,7 +245,7 @@ const Profile = () => {
       >
         Hire Me!
       </Button>
-    </Box>
+    </Grid2>
   );
 };
 

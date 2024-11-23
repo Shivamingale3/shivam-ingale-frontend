@@ -25,7 +25,7 @@ export default function Home({ children }) {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          width: '20vw',
+          width: '40vw',
           height: '100vh',
           padding: '20px',
         }}
@@ -38,7 +38,7 @@ export default function Home({ children }) {
         item
         color={'white'}
         sx={{
-          minWidth: '70vw',
+          minWidth: '50vw',
           minHeight: '100vh',
         }}
       >
