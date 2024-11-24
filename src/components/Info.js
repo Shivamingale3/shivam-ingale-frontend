@@ -16,27 +16,77 @@ const Info = () => {
         padding: '10%'
       }}
     >
-      <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+      <Typography
+        fontSize={35}
+        fontWeight={'bold'}
+        fontFamily={['Rowdies', 'sans-serif']}
+      >
         Hi!<br />
-        I am <Typography variant="h4" sx={{ fontWeight: "bold" }} color={colorTheme.palette.accent.main}>Shivam, </Typography>
+        I am
+        <Typography
+          fontSize={35}
+          fontWeight={'bold'}
+          fontFamily={['Rowdies', 'sans-serif']}
+          color={colorTheme.palette.accent.main}
+        >
+          Shivam,
+        </Typography>
         Software Developer
       </Typography>
-      <Typography variant="body1" sx={{ marginY: "20px" }}>
+      <Typography
+        fontSize={25}
+        fontFamily={['Rowdies', 'sans-serif']}
+        sx={{ marginY: "20px" }}
+      >
         I am a Full Stack Developer from Nagpur, India. I have deep interest in developing Web Applications and Console Apps.
         I work as Software Developer but I am also used to designing UI/UX.
       </Typography>
-      <Grid2 container spacing={4} justifyContent="center">
-        <Grid2 item xs={12} sm={6}>
-          <Typography variant="h3" sx={{ color: "#ff600a", fontWeight: "bold" }}>
+      <Grid2
+        container
+        spacing={4}
+        justifyContent="center"
+      >
+        <Grid2
+          item
+          xs={12}
+          sm={6}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              color: "#ff600a",
+              fontWeight: "bold"
+            }}
+          >
             1+
           </Typography>
-          <Typography variant="body1">Years of Experience</Typography>
+          <Typography
+            fontSize={25}
+            fontFamily={['Rowdies', 'sans-serif']}
+          >
+            Years of Experience
+          </Typography>
         </Grid2>
-        <Grid2 item xs={12} sm={6}>
-          <Typography variant="h3" sx={{ color: "#ff600a", fontWeight: "bold" }}>
+        <Grid2
+          item
+          xs={12}
+          sm={6}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              color: "#ff600a",
+              fontWeight: "bold"
+            }}
+          >
             10+
           </Typography>
-          <Typography variant="body1">Projects Completed</Typography>
+          <Typography
+            fontSize={25}
+            fontFamily={['Rowdies', 'sans-serif']}
+          >
+            Projects Completed
+          </Typography>
         </Grid2>
       </Grid2>
     </Grid2 >
