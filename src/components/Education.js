@@ -50,7 +50,7 @@ const educationList = [
     },
 ];
 
-export default function EducationRoadmap() {
+export default function Education() {
     const colorTheme = useTheme();
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -207,6 +207,35 @@ export default function EducationRoadmap() {
                     </Box>
                 ))}
             </Grid2>
+
+            {/* Dot Pagination */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: 1,
+                    mt: 2,
+                }}
+            >
+                {educationList.map((_, index) => (
+                    <Box
+                        key={index}
+                        sx={{
+                            width: activeIndex === index ? 12 : 8,
+                            height: activeIndex === index ? 12 : 8,
+                            borderRadius: '50%',
+                            backgroundColor:
+                                activeIndex === index
+                                    ? colorTheme.palette.accent.main
+                                    : colorTheme.palette.accent.light,
+                            transition: 'all 0.3s ease',
+                            cursor: 'pointer',
+                        }}
+                        onClick={() => setActiveIndex(index)}
+                    />
+                ))}
+            </Box>
         </Box>
     );
 }

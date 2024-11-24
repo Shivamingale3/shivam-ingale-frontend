@@ -30,7 +30,6 @@ const Sidebar = () => {
     about: false,
     education: false,
     experience: false,
-    specialization: false,
     projects: false,
     skills: false,
     contact: false,
@@ -43,7 +42,6 @@ const Sidebar = () => {
       about: path === "/about",
       education: path === "/education",
       experience: path === "/experience",
-      specialization: path === "/specialization",
       projects: path === "/projects",
       skills: path === "/skills",
       contact: path === "/contact-me",
@@ -130,22 +128,6 @@ const Sidebar = () => {
           )}
         </Stack>
       </IconButton>
-
-
-      {/* =============================================== Specialization =============================================== */}
-
-
-      <IconButton onClick={() => handleClick('/specialization')}>
-        <Stack direction="column" alignItems="center">
-          <Rocket color={active.specialization ? themeColors.palette.accent.main : "white"} />
-          {active.specialization ? (
-            <ActiveText color={themeColors.palette.accent.main}>Specialization</ActiveText>
-          ) : (
-            <InactiveText>Specialization</InactiveText>
-          )}
-        </Stack>
-      </IconButton>
-
 
       {/* =============================================== Projects =============================================== */}
 
