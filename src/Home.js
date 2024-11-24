@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { CssBaseline, Grid2 } from "@mui/material";
+import { CssBaseline, Grid } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Profile from './components/Profile';
@@ -16,54 +16,69 @@ export default function Home({ children }) {
   return (
     <Root>
       <CssBaseline />
+
       {/* Profile Section */}
-      <Grid2
+      <Grid
         aria-label="profile-grid"
         sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          flexBasis: '30%', // Increase to 30% of the width
+          flexBasis: '30%',
           height: '100vh',
           padding: '20px',
-          maxWidth: '30%', // Match the flexBasis
-          minWidth: '300px', // Ensure a minimum width for smaller screens
+          maxWidth: '30%',
+          minWidth: '300px',
+          overflow: 'hidden', // Prevent scrolling
         }}
       >
         <Profile />
-      </Grid2>
+      </Grid>
 
       {/* Middle Section */}
-      <Grid2
+      <Grid
         aria-label="middle-grid"
         item
         color={'white'}
         sx={{
-          flexBasis: '50%', // Middle section gets 50% of the width
-          minHeight: '100vh',
-          padding: '20px', // Adds padding for breathing room
-          overflow: 'auto', // Handles overflow gracefully
+          flexBasis: '50%',
+          height: '100vh', // Ensures middle section occupies full height
+          padding: '20px',
+          overflowY: 'auto', // Allows scrolling
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column', // Stacks components vertically
+          gap: '20px',
+          // Hide scrollbar
+          '&::-webkit-scrollbar': {
+            display: 'none', // For Chrome, Safari, and Edge
+          },
+          '-ms-overflow-style': 'none', // For IE and Edge
+          'scrollbar-width': 'none', // For Firefox
         }}
       >
         {children}
         <Outlet />
-      </Grid2>
+      </Grid>
+
 
       {/* Sidebar Section */}
-      <Grid2
+      <Grid
         aria-label="sidebar-grid"
         sx={{
           display: 'flex',
           justifyContent: 'end',
           alignItems: 'center',
-          flexBasis: '20%', // Reduce Sidebar width slightly
+          flexBasis: '20%',
           height: '100vh',
           paddingRight: '1%',
-          maxWidth: '20%', // Match the flexBasis
+          maxWidth: '20%',
+          overflow: 'hidden', // Prevent scrolling
         }}
       >
         <Sidebar />
-      </Grid2>
+      </Grid>
     </Root>
   );
 }
