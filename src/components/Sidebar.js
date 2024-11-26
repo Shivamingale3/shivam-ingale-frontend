@@ -1,8 +1,8 @@
 import { useTheme } from "@emotion/react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
-import { AcademicHat, Briefcase, Desktop, Envelope, Home, Rocket, Tool, UserCircle } from "@mynaui/icons-react";
-import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { AcademicHat, Briefcase, Desktop, Envelope, Home, Tool, UserCircle } from "@mynaui/icons-react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Sidebar = () => {
