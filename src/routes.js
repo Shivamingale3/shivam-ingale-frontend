@@ -1,6 +1,6 @@
 import AuthGuard from '../src/Admin/Components/AuthGuard';
 import Dashboard from './Admin/Pages/Dashboard';
-import SignIn from './Admin/Pages/SignIn';
+import LogIn from './Admin/Pages/LogIn';
 import About from './components/About';
 import ContactMe from './components/ContactMe';
 import Education from './components/Education';
@@ -49,8 +49,8 @@ const routes = [
         ]
     },
     {
-        path: "/admin/signin",
-        element: <SignIn />,
+        path: "/auth/login",
+        element: <LogIn />,
     },
     {
         path: "/",
