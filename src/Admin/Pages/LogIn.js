@@ -2,11 +2,20 @@ import { Grid2, Typography } from "@mui/material";
 import React, { useState } from "react";
 import CustomButton from '../Components/styledComponents/CustomButton';
 import CustomTextField from "../Components/styledComponents/CustomTextField";
+import AlertMessageComponent from '../Components/styledComponents/AlertMessageComponent';
+import { EOperationStatus } from '../../utils/Enum';
 
 const LogIn = () => {
   const [formValues, setFormValues] = useState({
     username: "",
     password: "",
+  });
+
+  const [operationStatus, setOperationStatus] = useState({
+    error: false,
+    success: false,
+    warning: false,
+    message: "",
   });
 
   const handleChange = (event) => {
@@ -19,7 +28,12 @@ const LogIn = () => {
 
   const handleSubmit = () => {
     if (!formValues.username || !formValues.password) {
-      alert("Both username and password are required.");
+      setOperationStatus({
+        error: true,
+        success: false,
+        warning: false,
+        message: "Both Username & Password are necessary!",
+      });
       return;
     }
     console.log(formValues);
@@ -31,6 +45,15 @@ const LogIn = () => {
       password: "",
     });
   };
+
+  const onClose = () => {
+    setOperationStatus({
+      error: false,
+      success: false,
+      warning: false,
+      message: "",
+    });
+  }
 
   return (
     <Grid2
@@ -121,6 +144,13 @@ const LogIn = () => {
           />
         </Grid2>
       </Grid2>
+      {operationStatus.error && (
+        <AlertMessageComponent
+          message={operationStatus.message}
+          status={EOperationStatus.ERROR}
+          onClose={onClose}
+        />
+      )}
     </Grid2>
   );
 };
