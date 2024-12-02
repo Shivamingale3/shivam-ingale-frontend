@@ -8,7 +8,7 @@ const educationList = [
     {
         company: 'Leadows Technologies Pvt. Ltd.',
         position: 'Jr. Software Engineer',
-        from: moment('06-01-2022').format('MMMM-YYYY'),
+        from: moment('06-01-2022', 'MM-DD-YYYY').format('MMMM-YYYY'),
         to: moment().format('MMMM-YYYY'),
         address: 'Nagpur, Maharashtra, India.',
         description: `Two-Years (4-Semesters) Master of Computer Applications (MCA) program 

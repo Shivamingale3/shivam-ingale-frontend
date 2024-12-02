@@ -8,8 +8,8 @@ const educationList = [
     {
         degree: 'Master of Computer Applications',
         institute: 'Dr. D Y Patil Institute of Management & Research, Pune',
-        from: moment('11-01-2022').format('MMMM-YYYY'),
-        to: moment('06-01-2024').format('MMMM-YYYY'),
+        from: moment('11-01-2022', 'MM-DD-YYYY').format('MMMM-YYYY'),
+        to: moment('06-01-2024', 'MM-DD-YYYY').format('MMMM-YYYY'),
         percent: '7.86 CGPA',
         description: `Two-Years (4-Semesters) Master of Computer Applications (MCA) program 
         of the Institute is approved by the All India Council for Technical Education (AICTE), 
@@ -22,8 +22,8 @@ const educationList = [
     {
         degree: 'Bachelor of Computer Applications',
         institute: 'Kamla Nehru Mahavidyalaya, Nagpur',
-        from: moment('09-01-2019').format('MMMM-YYYY'),
-        to: moment('05-01-2022').format('MMMM-YYYY'),
+        from: moment('09-01-2019', 'MM-DD-YYYY').format('MMMM-YYYY'),
+        to: moment('05-01-2022', 'MM-DD-YYYY').format('MMMM-YYYY'),
         percent: '76 %',
         description: `It is a three-year undergraduate-level program that primarily focuses on 
         computer applications and software development. It serves as a gateway for students who wish to 
@@ -33,8 +33,8 @@ const educationList = [
     {
         degree: 'HSC',
         institute: 'Kamla Nehru Mahavidyalaya, Nagpur',
-        from: moment('04-01-2018').format('MMMM-YYYY'),
-        to: moment('03-01-2019').format('MMMM-YYYY'),
+        from: moment('04-01-2018', 'MM-DD-YYYY').format('MMMM-YYYY'),
+        to: moment('03-01-2019', 'MM-DD-YYYY').format('MMMM-YYYY'),
         percent: '56 %',
         description: `10 + 2, Higher Secondary Certificate by the Maharashtra State Board of Secondary and 
         Higher Secondary Education (Abbreviation: MSBSHSE).`,
@@ -42,8 +42,8 @@ const educationList = [
     {
         degree: 'SSC',
         institute: 'Maharashtra State Board',
-        from: moment('04-01-2016').format('MMMM-YYYY'),
-        to: moment('05-01-2017').format('MMMM-YYYY'),
+        from: moment('04-01-2016', 'MM-DD-YYYY').format('MMMM-YYYY'),
+        to: moment('05-01-2017', 'MM-DD-YYYY').format('MMMM-YYYY'),
         percent: '84 %',
         description: `10th Secondary School Certificate by the Maharashtra State Board of Secondary and 
         Higher Secondary Education (Abbreviation: MSBSHSE).`,

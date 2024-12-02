@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const AlertMessageComponent = ({ message, status, onClose }) => {
+const AlertMessageComponent = ({ message, status, onClose = null }) => {
     const [isVisible, setIsVisible] = useState(true);
 
     // Determine border color based on status
@@ -78,10 +78,6 @@ AlertMessageComponent.propTypes = {
     message: PropTypes.string.isRequired,
     status: PropTypes.oneOf(["success", "warning", "error"]).isRequired,
     onClose: PropTypes.func,
-};
-
-AlertMessageComponent.defaultProps = {
-    onClose: null,
 };
 
 export default AlertMessageComponent;

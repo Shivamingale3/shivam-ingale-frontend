@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Home from './Home';
 import NotFound from './pages/NotFound';
+import Register from './Admin/Pages/Register';
 const routes = [
     {
         path: "/",
@@ -53,12 +54,21 @@ const routes = [
         element: <LogIn />,
     },
     {
-        path: "/",
+        path: "/auth/register",
+        element: <Register />,
+    },
+    {
+        path: "/admin/dashboard",
         element: (
             <AuthGuard>
                 <Dashboard />
             </AuthGuard>
         ),
+        children: [
+            {
+                index: true,
+                element: <Info />,
+            },]
     },
     {
         path: "*",

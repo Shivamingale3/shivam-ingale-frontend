@@ -5,7 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-function CustomTextField({ inputName, inputLabel, value, handleChange, fieldType }) {
+function CustomTextField({ inputName, inputLabel, value, handleChange, bool, error }) {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -14,45 +14,50 @@ function CustomTextField({ inputName, inputLabel, value, handleChange, fieldType
 
     return (
         <TextField
-            fullWidth
+            fullWidth={bool}
             name={inputName}
             label={inputLabel}
             variant="outlined"
-            type={inputName === "password" && !isPasswordVisible ? "password" : "text"} // Toggle password type
+            type={inputName === "password" && !isPasswordVisible ? "password" : "text"}
             sx={{
-                // Styling the root TextField
                 "& .MuiOutlinedInput-root": {
-                    backgroundColor: "black", // Black background
-                    color: "white", // White text
+                    backgroundColor: "black",
+                    color: "white",
                     "& fieldset": {
-                        borderColor: "white", // White outline
+                        borderColor: "white",
                     },
                     "&:hover fieldset": {
-                        borderColor: "white", // White outline on hover
+                        borderColor: "white",
                     },
                     "&.Mui-focused fieldset": {
-                        borderColor: "white", // White outline when focused
+                        borderColor: "white",
                     },
                 },
                 "& .MuiInputLabel-root": {
-                    color: "white", // White label text
+                    color: "white",
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                    color: "white", // White label text when focused
+                    color: "white",
+                },
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                transition: "all 0.3s ease-in-out",
+                ":hover": {
+                    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+                    transform: "translateY(-5px)",
                 },
             }}
             InputProps={{
                 style: {
-                    color: "white", // Inside text color
+                    color: "white",
                 },
                 endAdornment:
-                    inputName === "password" ? ( // Show the visibility toggle button for password fields
+                    inputName === "password" ? (
                         <InputAdornment position="end">
                             <IconButton
                                 onClick={togglePasswordVisibility}
                                 edge="end"
                                 aria-label="toggle password visibility"
-                                style={{ color: "white" }} // Icon color
+                                style={{ color: "white" }}
                             >
                                 {isPasswordVisible ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
@@ -61,6 +66,7 @@ function CustomTextField({ inputName, inputLabel, value, handleChange, fieldType
             }}
             value={value}
             onChange={handleChange}
+            error={error}
         />
     );
 }

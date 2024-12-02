@@ -1,9 +1,15 @@
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import styled from "styled-components";
 
 const ColorButton = styled(Button)(({ theme }) => ({
     color: "white",
     backgroundColor: "black",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    transition: "all 0.3s ease-in-out",
+    ":hover": {
+        boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+        transform: "translateY(-5px)",
+    },
     border: "1px solid white",
     '&.MuiButton-contained': {
         backgroundColor: "black",
@@ -16,10 +22,10 @@ const ColorButton = styled(Button)(({ theme }) => ({
     },
 }));
 
-export default function CustomButton({ label, handleClick }) {
+export default function CustomButton({ label, handleClick, loading }) {
     return (
         <ColorButton variant="contained" onClick={handleClick}>
-            {label}
+            {loading ? <CircularProgress /> : label}
         </ColorButton>
     );
 }
