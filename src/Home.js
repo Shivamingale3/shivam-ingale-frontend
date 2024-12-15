@@ -10,7 +10,7 @@ const Root = styled.div`
   display: flex;
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #1d1c1d;
+  background-color: #000000;
 
   @media (max-width: 900px) {
     flex-direction: column; /* Vertical layout for small devices */
@@ -100,7 +100,7 @@ export default function Home({ children }) {
             width: "100%",
             zIndex: 10,
             justifyContent: "space-around",
-            backgroundColor: "#1D1C1D",
+            backgroundColor: "#000000",
           },
         }}
       >

@@ -145,7 +145,7 @@ const Skills = () => {
                   sx={{
                     height: 8, // Smaller height for mobile
                     borderRadius: 5,
-                    backgroundColor: "#e0e0e0",
+                    backgroundColor: "#545454",
                     "& .MuiLinearProgress-bar": {
                       backgroundColor: colorTheme.palette.accent.main,
                     },

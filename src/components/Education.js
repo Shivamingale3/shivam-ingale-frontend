@@ -95,12 +95,13 @@ export default function Education() {
             startIcon={<ArrowLeft />}
             onClick={handlePrevious}
             sx={{
-              backgroundColor: colorTheme.palette.accent.main,
-              border: ["1px", "solid", colorTheme.palette.accent.hover],
-              color: "black",
+              backgroundColor: colorTheme.palette.master.main,
+              border: "1px solid white",
+              color: "white",
               cursor: "pointer",
               padding: { xs: "6px 10px", sm: "8px 12px" },
               height: "auto",
+              "&:hover": { backgroundColor: "#ffffff", color: "black" },
             }}
           >
             Previous
@@ -123,12 +124,13 @@ export default function Education() {
             endIcon={<ArrowRight />}
             onClick={handleNext}
             sx={{
-              backgroundColor: colorTheme.palette.accent.main,
-              border: ["1px", "solid", colorTheme.palette.accent.hover],
-              color: "black",
+              backgroundColor: colorTheme.palette.master.main,
+              border: "1px solid white",
+              color: "white",
               cursor: "pointer",
               padding: { xs: "6px 10px", sm: "8px 12px" },
               height: "auto",
+              "&:hover": { backgroundColor: "#ffffff", color: "black" },
             }}
           >
             Next
@@ -161,7 +163,7 @@ export default function Education() {
               sx={{
                 padding: { xs: 2, sm: 3 },
                 borderRadius: 2,
-                border: "0.1px solid #000000",
+                border: "0.1px solid #ffffff",
                 backgroundColor: colorTheme.palette.master.main,
               }}
             >

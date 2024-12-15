@@ -61,10 +61,12 @@ export default function Experience() {
           startIcon={<ArrowLeft />}
           onClick={handlePrevious}
           sx={{
-            backgroundColor: colorTheme.palette.accent.main,
-            color: "black",
+            border: "1px solid white",
+            backgroundColor: "black",
+            color: "white",
             fontSize: { xs: "12px", sm: "14px" },
             padding: { xs: "6px 10px", sm: "8px 12px" },
+            "&:hover": { backgroundColor: "#ffffff", color: "black" },
           }}
         >
           Previous
@@ -85,10 +87,12 @@ export default function Experience() {
           endIcon={<ArrowRight />}
           onClick={handleNext}
           sx={{
-            backgroundColor: colorTheme.palette.accent.main,
-            color: "black",
+            border: "1px solid white",
+            backgroundColor: "black",
+            color: "white",
             fontSize: { xs: "12px", sm: "14px" },
             padding: { xs: "6px 10px", sm: "8px 12px" },
+            "&:hover": { backgroundColor: "#ffffff", color: "black" },
           }}
         >
           Next
@@ -110,6 +114,7 @@ export default function Experience() {
               padding: { xs: 2, sm: 3 },
               borderRadius: 2,
               backgroundColor: colorTheme.palette.master.main,
+              border: "1px solid white",
             }}
           >
             <Box
@@ -136,7 +141,7 @@ export default function Experience() {
                 {item.from} - {item.to}
               </Typography>
             </Box>
-            <Divider sx={{ mb: 2 }} />
+            <Divider sx={{ mb: 2, backgroundColor: "#969696", height: 0.2 }} />{" "}
             <Typography
               variant="subtitle1"
               sx={{ mb: 1 }}

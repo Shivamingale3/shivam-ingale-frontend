@@ -30,8 +30,18 @@ const Sidebar = () => {
     && {
       font-family: "Rubik", sans-serif;
       font-size: 10px;
+      color: white;
     }
   `;
+
+  const SquircleBackground = styled(Box)({
+    backgroundColor: "white",
+    borderRadius: "12px", // Creates rounded square effect
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "8px",
+  });
 
   const [active, setActive] = useState({
     info: false,
@@ -63,7 +73,7 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#1D1C1D",
+        backgroundColor: "#000000",
         color: "white",
         padding: "10px",
         border: "0.5px solid",
@@ -121,13 +131,15 @@ const Sidebar = () => {
       ].map(({ route, label, Icon, key }) => (
         <IconButton key={key} onClick={() => handleClick(route)}>
           <Stack direction="column" alignItems="center">
-            <Icon
-              color={active[key] ? themeColors.palette.accent.main : "white"}
-            />
             {active[key] ? (
-              <ActiveText color={themeColors.palette.accent.main}>
-                {label}
-              </ActiveText>
+              <SquircleBackground>
+                <Icon color="black" />
+              </SquircleBackground>
+            ) : (
+              <Icon color="white" />
+            )}
+            {active[key] ? (
+              <ActiveText>{label}</ActiveText>
             ) : (
               <InactiveText>{label}</InactiveText>
             )}

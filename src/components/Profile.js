@@ -20,17 +20,21 @@ const Profile = () => {
         height: "auto",
         width: { xs: "95%", sm: "90%", md: "85%", lg: "80%" },
         padding: { xs: "24px", sm: "32px" },
-        backgroundColor: "#1D1C1D",
+        backgroundColor: "#000000",
         color: "white",
         textAlign: "center",
         borderRadius: "2.5%",
         border: "1px solid",
-        borderColor: colorTheme.palette.accent.hover,
+        borderColor: "white",
         justifyContent: "center",
         alignItems: "center",
         gap: 4,
         overflow: "hidden",
         flexShrink: 0,
+        "&:hover": {
+          transform: "scale(1.01)",
+          boxShadow: colorTheme.shadows[5],
+        },
       }}
     >
       {/* Name */}
@@ -39,17 +43,10 @@ const Profile = () => {
           fontFamily={["Rowdies", "sans-serif"]}
           letterSpacing={2}
           fontSize={{ xs: "1.8rem", sm: "2.4rem" }}
-          color={colorTheme.palette.accent.main}
-        >
-          S
-        </Typography>
-        <Typography
-          fontFamily={["Rowdies", "sans-serif"]}
-          letterSpacing={2}
-          fontSize={{ xs: "1.8rem", sm: "2.4rem" }}
+          fontWeight={550}
           color={colorTheme.palette.accent.light}
         >
-          hivam
+          SHIVAM INGALE
         </Typography>
       </Grid2>
 
@@ -92,7 +89,7 @@ const Profile = () => {
         fontFamily={["Rowdies", "sans-serif"]}
         letterSpacing={2}
         fontSize={{ xs: "1.2rem", sm: "1.4rem" }}
-        color={colorTheme.palette.accent.hover}
+        color={colorTheme.palette.accent.light}
       >
         Junior Software Developer
       </Typography>
@@ -151,11 +148,12 @@ const Profile = () => {
         variant="contained"
         sx={{
           mt: 3,
-          backgroundColor: "#ff600a",
+          border: "1px solid white",
+          backgroundColor: "#000000",
           color: "white",
           padding: "12px 24px",
           fontSize: "1rem",
-          "&:hover": { backgroundColor: "#e05500" },
+          "&:hover": { backgroundColor: "#ffffff", color: "black" },
         }}
       >
         Hire Me!
