@@ -7,8 +7,11 @@ import {
   Paper,
   styled,
   useMediaQuery,
+  CircularProgress,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import CustomAlert from "./CustomAlert";
+import emailjs from "emailjs-com";
 
 const ContactForm = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(6),
@@ -65,6 +68,12 @@ const ContactMe = () => {
     email: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [operationStatus, setOperationStatus] = useState({
+    error: false,
+    success: false,
+    message: "",
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -72,6 +81,7 @@ const ContactMe = () => {
   };
 
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     const { name, email, message } = formData;
 
@@ -89,7 +99,52 @@ const ContactMe = () => {
       return;
     }
 
-    console.log("Form Data Submitted:", formData); // Ready for backend
+    const {
+      REACT_APP_EMAILJS_SERVICE_ID,
+      REACT_APP_EMAILJS_CONTACT_ME_TEMPLATE_ID,
+      REACT_APP_EMAILJS_REPLY_TEMPLATE_ID,
+      REACT_APP_EMAILJS_PUBLIC_KEY,
+    } = process.env;
+
+    const serviceID = REACT_APP_EMAILJS_SERVICE_ID;
+    const thankYouTemplateID = REACT_APP_EMAILJS_REPLY_TEMPLATE_ID;
+    const adminTemplateID = REACT_APP_EMAILJS_CONTACT_ME_TEMPLATE_ID;
+    const userID = REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    const thankYouParams = {
+      from_name: name,
+      to: email,
+    };
+
+    const adminParams = {
+      user_name: name,
+      user_email: email,
+      message: message,
+    };
+
+    setOperationStatus({ error: false, success: false, message: "" });
+
+    Promise.all([
+      emailjs.send(serviceID, thankYouTemplateID, thankYouParams, userID),
+      emailjs.send(serviceID, adminTemplateID, adminParams, userID),
+    ])
+      .then(() => {
+        setOperationStatus({
+          error: false,
+          success: true,
+          message: "Message sent successfully!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        setOperationStatus({
+          error: true,
+          success: false,
+          message: "Failed to send message. Please try again later.",
+        });
+      });
+    setLoading(false);
   };
 
   return (
@@ -152,7 +207,13 @@ const ContactMe = () => {
           <Button
             type="submit"
             variant="contained"
-            endIcon={<SendIcon />}
+            endIcon={
+              loading ? (
+                <CircularProgress color="white" size={"25px"} />
+              ) : (
+                <SendIcon />
+              )
+            }
             sx={{
               mt: 3,
               px: 4,
@@ -167,10 +228,28 @@ const ContactMe = () => {
               },
             }}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </Button>
         </form>
       </ContactForm>
+      {operationStatus.success && (
+        <CustomAlert
+          message={operationStatus.message}
+          status={"success"}
+          onClose={() =>
+            setOperationStatus({ error: false, success: false, message: "" })
+          }
+        />
+      )}
+      {operationStatus.error && (
+        <CustomAlert
+          message={operationStatus.message}
+          status={"error"}
+          onClose={() =>
+            setOperationStatus({ error: false, success: false, message: "" })
+          }
+        />
+      )}
     </Box>
   );
 };
