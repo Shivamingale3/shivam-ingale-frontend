@@ -1,5 +1,11 @@
 import { useTheme } from "@emotion/react";
-import { GitHub, Instagram, LinkedIn, Mail, PictureAsPdf } from "@mui/icons-material";
+import {
+  GitHub,
+  Instagram,
+  LinkedIn,
+  Mail,
+  PictureAsPdf,
+} from "@mui/icons-material";
 import { Avatar, Button, Grid2, IconButton, Typography } from "@mui/material";
 import React from "react";
 
@@ -12,7 +18,7 @@ const Profile = () => {
       direction="column"
       sx={{
         height: "auto",
-        width: { xs: "100%", sm: "95%", md: "80%", lg: "70%" },
+        width: { xs: "95%", sm: "90%", md: "85%", lg: "80%" },
         padding: { xs: "24px", sm: "32px" },
         backgroundColor: "#1D1C1D",
         color: "white",
@@ -30,7 +36,7 @@ const Profile = () => {
       {/* Name */}
       <Grid2 item sx={{ display: "flex", justifyContent: "center" }}>
         <Typography
-          fontFamily={['Rowdies', 'sans-serif']}
+          fontFamily={["Rowdies", "sans-serif"]}
           letterSpacing={2}
           fontSize={{ xs: "1.8rem", sm: "2.4rem" }}
           color={colorTheme.palette.accent.main}
@@ -38,7 +44,7 @@ const Profile = () => {
           S
         </Typography>
         <Typography
-          fontFamily={['Rowdies', 'sans-serif']}
+          fontFamily={["Rowdies", "sans-serif"]}
           letterSpacing={2}
           fontSize={{ xs: "1.8rem", sm: "2.4rem" }}
           color={colorTheme.palette.accent.light}
@@ -73,7 +79,7 @@ const Profile = () => {
 
       {/* Location */}
       <Typography
-        fontFamily={['Rowdies', 'sans-serif']}
+        fontFamily={["Rowdies", "sans-serif"]}
         letterSpacing={2}
         fontSize={{ xs: "1.2rem", sm: "1.4rem" }}
         color={colorTheme.palette.accent.light}
@@ -83,7 +89,7 @@ const Profile = () => {
 
       {/* Role */}
       <Typography
-        fontFamily={['Rowdies', 'sans-serif']}
+        fontFamily={["Rowdies", "sans-serif"]}
         letterSpacing={2}
         fontSize={{ xs: "1.2rem", sm: "1.4rem" }}
         color={colorTheme.palette.accent.hover}
@@ -119,7 +125,9 @@ const Profile = () => {
               "&:hover .icon-label": { opacity: 1 },
             }}
           >
-            {React.cloneElement(icon, { sx: { color: "white", fontSize: "2rem", } })}
+            {React.cloneElement(icon, {
+              sx: { color: "white", fontSize: "2rem" },
+            })}
             <Typography
               className="icon-label"
               sx={{
@@ -153,7 +161,6 @@ const Profile = () => {
         Hire Me!
       </Button>
     </Grid2>
-
   );
 };
 
