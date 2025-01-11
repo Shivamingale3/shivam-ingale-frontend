@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useTheme } from "@emotion/react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import {
@@ -22,26 +23,35 @@ const Sidebar = () => {
     && {
       font-family: "Rubik", sans-serif;
       color: white;
-      font-size: 10px;
+      font-size: 0.8rem; /* Default font size */
+      @media (max-width: 600px) {
+        font-size: 0.6rem; /* Smaller font size on mobile */
+      }
     }
   `;
 
   const ActiveText = styled(Typography)`
     && {
       font-family: "Rubik", sans-serif;
-      font-size: 10px;
+      font-size: 0.8rem; /* Default font size */
       color: white;
+      @media (max-width: 600px) {
+        font-size: 0.6rem; /* Smaller font size on mobile */
+      }
     }
   `;
 
-  const SquircleBackground = styled(Box)({
-    backgroundColor: "white",
-    borderRadius: "12px", // Creates rounded square effect
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "8px",
-  });
+  const SquircleBackground = styled(Box)`
+    background-color: white;
+    border-radius: 12px; /* Rounded square effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    @media (max-width: 600px) {
+      padding: 4px; /* Reduced padding for smaller icons on mobile */
+    }
+  `;
 
   const [active, setActive] = useState({
     info: false,
@@ -75,29 +85,31 @@ const Sidebar = () => {
       sx={{
         backgroundColor: "#000000",
         color: "white",
-        padding: "10px",
-        border: "0.5px solid",
-        borderColor: themeColors.palette.accent.hover,
-        borderRadius: "20px",
+        padding: "2%",
+        border: "1px solid",
+        borderColor: "white",
+        borderRadius: "5%",
         overflow: "hidden", // Ensures border radius is visible
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         placeContent: "space-evenly",
-        flexDirection: "column", // Default vertical layout for larger screens
+        flexDirection: "column", // Default vertical layout
+        gap: "10px", // Default gap
 
         // Media query for mobile screens
         "@media (max-width: 600px)": {
-          flexDirection: "row", // Horizontal layout for mobile screens
+          flexDirection: "row", // Horizontal layout for mobile
           position: "fixed",
-          bottom: 0, // Place at bottom of screen
+          bottom: 0, // Fixed to bottom on mobile
           left: 0,
           right: 0,
-          borderRadius: "0px", // Optional: No border radius for full width
-          padding: "5px 0",
+          borderRadius: 2.5, // Full-width bar
+          padding: "1%",
+          gap: "5px", // Smaller gap on mobile
+          border: "1px solid white",
         },
       }}
-      gap={2}
     >
       {/* Sidebar Navigation Items */}
       {[
@@ -129,14 +141,39 @@ const Sidebar = () => {
           key: "contact",
         },
       ].map(({ route, label, Icon, key }) => (
-        <IconButton key={key} onClick={() => handleClick(route)}>
-          <Stack direction="column" alignItems="center">
+        <IconButton
+          key={key}
+          onClick={() => handleClick(route)}
+          sx={{
+            padding: "8px", // Default padding
+            "@media (max-width: 600px)": {
+              padding: "4px", // Smaller padding for icons on mobile
+            },
+          }}
+        >
+          <Stack direction="column" alignItems="center" gap="5%">
             {active[key] ? (
               <SquircleBackground>
-                <Icon color="black" />
+                <Icon
+                  sx={{
+                    fontSize: "24px", // Default icon size
+                    "@media (max-width: 600px)": {
+                      fontSize: "18px", // Smaller icon size on mobile
+                    },
+                  }}
+                  color="black"
+                />
               </SquircleBackground>
             ) : (
-              <Icon color="white" />
+              <Icon
+                sx={{
+                  fontSize: "24px", // Default icon size
+                  "@media (max-width: 600px)": {
+                    fontSize: "18px", // Smaller icon size on mobile
+                  },
+                }}
+                color="white"
+              />
             )}
             {active[key] ? (
               <ActiveText>{label}</ActiveText>

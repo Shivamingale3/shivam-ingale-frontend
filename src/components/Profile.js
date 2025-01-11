@@ -6,14 +6,14 @@ import {
   Mail,
   PictureAsPdf,
 } from "@mui/icons-material";
-import { Avatar, Button, Grid2, IconButton, Typography } from "@mui/material";
+import { Avatar, Button, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 
 const Profile = () => {
   const colorTheme = useTheme();
 
   return (
-    <Grid2
+    <Grid
       container
       direction="column"
       sx={{
@@ -24,8 +24,7 @@ const Profile = () => {
         color: "white",
         textAlign: "center",
         borderRadius: "2.5%",
-        border: "1px solid",
-        borderColor: "white",
+        border: "1px solid white",
         justifyContent: "center",
         alignItems: "center",
         gap: 4,
@@ -38,7 +37,7 @@ const Profile = () => {
       }}
     >
       {/* Name */}
-      <Grid2 item sx={{ display: "flex", justifyContent: "center" }}>
+      <Grid item sx={{ display: "flex", justifyContent: "center" }}>
         <Typography
           fontFamily={["Rowdies", "sans-serif"]}
           letterSpacing={2}
@@ -48,10 +47,10 @@ const Profile = () => {
         >
           SHIVAM INGALE
         </Typography>
-      </Grid2>
+      </Grid>
 
       {/* Avatar */}
-      <Grid2
+      <Grid
         item
         sx={{
           display: "flex",
@@ -63,7 +62,7 @@ const Profile = () => {
       >
         <Avatar
           variant="square"
-          alt="Shivam"
+          alt="Shivam Ingale"
           src="avatar.jpeg"
           sx={{
             width: "100%",
@@ -72,7 +71,7 @@ const Profile = () => {
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
           }}
         />
-      </Grid2>
+      </Grid>
 
       {/* Location */}
       <Typography
@@ -95,7 +94,7 @@ const Profile = () => {
       </Typography>
 
       {/* Social Icons */}
-      <Grid2
+      <Grid
         container
         item
         direction="row"
@@ -103,19 +102,38 @@ const Profile = () => {
         alignItems="center"
         spacing={2}
         wrap="wrap"
-        sx={{
-          flexShrink: 0,
-        }}
+        sx={{ flexShrink: 0 }}
       >
         {[
-          { icon: <Instagram />, label: "Instagram" },
-          { icon: <GitHub />, label: "GitHub" },
-          { icon: <LinkedIn />, label: "LinkedIn" },
-          { icon: <Mail />, label: "Mail" },
-          { icon: <PictureAsPdf />, label: "Download Resume" },
-        ].map(({ icon, label }, index) => (
+          {
+            icon: <Instagram />,
+            label: "Instagram",
+            link: "https://www.instagram.com/shiv_am_034/",
+          },
+          {
+            icon: <GitHub />,
+            label: "GitHub",
+            link: "https://github.com/Shivamingale3",
+          },
+          {
+            icon: <LinkedIn />,
+            label: "LinkedIn",
+            link: "https://linkedin.com/in/shivam-ingale",
+          },
+          {
+            icon: <Mail />,
+            label: "Mail",
+            link: "mailto:shivamingale3@gmail.com",
+          },
+          {
+            icon: <PictureAsPdf />,
+            label: "Download Resume",
+            link: "Resume.pdf",
+          },
+        ].map(({ icon, label, link }, index) => (
           <IconButton
             key={index}
+            onClick={() => window.open(link, "_blank")}
             sx={{
               position: "relative",
               flexDirection: "column",
@@ -141,10 +159,11 @@ const Profile = () => {
             </Typography>
           </IconButton>
         ))}
-      </Grid2>
+      </Grid>
 
       {/* Hire Me Button */}
       <Button
+        onClick={() => window.open("mailto:shivamingale3@gmail.com", "_blank")}
         variant="contained"
         sx={{
           mt: 3,
@@ -158,7 +177,7 @@ const Profile = () => {
       >
         Hire Me!
       </Button>
-    </Grid2>
+    </Grid>
   );
 };
 
