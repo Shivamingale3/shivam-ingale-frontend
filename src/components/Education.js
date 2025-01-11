@@ -69,14 +69,13 @@ export default function Education() {
       sx={{
         maxWidth: "90%",
         margin: "auto",
-        padding: { xs: 2, sm: 4 },
+        padding: { xs: 1.5, sm: 3 },
         borderRadius: 2,
         display: "flex",
-        justifyContent: "space-",
-        alignItems: "center",
         flexDirection: "column",
+        alignItems: "center",
+        gap: { xs: 4, sm: 6 },
       }}
-      gap={10}
     >
       {/* Button and Heading Grid */}
       <Grid2
@@ -87,7 +86,7 @@ export default function Education() {
         sx={{
           marginBottom: 2,
           width: "100%",
-          position: "relative", // Keeps buttons in place
+          position: "relative",
         }}
       >
         <Grid2 item>
@@ -98,9 +97,8 @@ export default function Education() {
               backgroundColor: colorTheme.palette.master.main,
               border: "1px solid white",
               color: "white",
-              cursor: "pointer",
-              padding: { xs: "6px 10px", sm: "8px 12px" },
-              height: "auto",
+              padding: { xs: "4px 8px", sm: "6px 10px" },
+              fontSize: { xs: "0.75rem", sm: "0.875rem" },
               "&:hover": { backgroundColor: "#ffffff", color: "black" },
             }}
           >
@@ -112,7 +110,7 @@ export default function Education() {
             sx={{
               color: colorTheme.palette.accent.main,
               fontFamily: ["Rowdies", "sans-serif"],
-              fontSize: { xs: 24, sm: 35 },
+              fontSize: { xs: "1.25rem", sm: "2rem" },
               fontWeight: "bold",
             }}
           >
@@ -127,9 +125,8 @@ export default function Education() {
               backgroundColor: colorTheme.palette.master.main,
               border: "1px solid white",
               color: "white",
-              cursor: "pointer",
-              padding: { xs: "6px 10px", sm: "8px 12px" },
-              height: "auto",
+              padding: { xs: "4px 8px", sm: "6px 10px" },
+              fontSize: { xs: "0.75rem", sm: "0.875rem" },
               "&:hover": { backgroundColor: "#ffffff", color: "black" },
             }}
           >
@@ -144,9 +141,8 @@ export default function Education() {
         sx={{
           width: "100%",
           display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
           flexDirection: "column",
+          alignItems: "center",
         }}
       >
         {educationList.map((item, index) => (
@@ -154,8 +150,8 @@ export default function Education() {
             key={index}
             sx={{
               display: index === activeIndex ? "block" : "none",
-              transition: "opacity 0.3s ease",
               width: "100%",
+              transition: "opacity 0.3s ease",
             }}
           >
             <Paper
@@ -170,17 +166,26 @@ export default function Education() {
               <Grid2
                 sx={{
                   display: "flex",
+                  flexDirection: { xs: "column", sm: "row" },
                   justifyContent: "space-between",
                   alignItems: "center",
-                  flexDirection: { xs: "column", sm: "row" },
                 }}
               >
-                <Typography variant="h6" color={colorTheme.palette.accent.main}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontSize: { xs: "1rem", sm: "1.25rem" },
+                  }}
+                  color={colorTheme.palette.accent.main}
+                >
                   {item.degree}
                 </Typography>
                 <Typography
                   variant="body2"
-                  sx={{ fontStyle: "italic", mb: 2 }}
+                  sx={{
+                    fontStyle: "italic",
+                    marginBottom: { xs: 1, sm: 0 },
+                  }}
                   color={colorTheme.palette.accent.light}
                 >
                   {item.from} - {item.to}
@@ -189,31 +194,39 @@ export default function Education() {
               <Grid2
                 sx={{
                   display: "flex",
+                  flexDirection: { xs: "column", sm: "row" },
                   justifyContent: "space-between",
                   alignItems: "center",
-                  flexDirection: { xs: "column", sm: "row" },
                 }}
               >
                 <Typography
                   variant="subtitle1"
-                  sx={{ mb: 1 }}
+                  sx={{
+                    fontSize: { xs: "0.875rem", sm: "1rem" },
+                    marginBottom: { xs: 1, sm: 0 },
+                  }}
                   color={colorTheme.palette.accent.light}
                 >
                   {item.institute}
                 </Typography>
                 <Typography
                   variant="subtitle1"
-                  sx={{ mb: 1 }}
+                  sx={{
+                    fontSize: { xs: "0.875rem", sm: "1rem" },
+                  }}
                   color={colorTheme.palette.accent.light}
                 >
                   {item.percent}
                 </Typography>
               </Grid2>
               <Divider
-                sx={{ mb: 2, backgroundColor: "#969696", height: 0.2 }}
+                sx={{ marginY: 2, backgroundColor: "#969696", height: 0.2 }}
               />
               <Typography
                 variant="body2"
+                sx={{
+                  fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                }}
                 color={colorTheme.palette.accent.hover}
               >
                 {item.description}
@@ -229,16 +242,16 @@ export default function Education() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: 1,
-          mt: 2,
+          gap: { xs: 0.5, sm: 1 },
+          marginTop: 2,
         }}
       >
         {educationList.map((_, index) => (
           <Box
             key={index}
             sx={{
-              width: activeIndex === index ? 12 : 8,
-              height: activeIndex === index ? 12 : 8,
+              width: activeIndex === index ? 10 : 6,
+              height: activeIndex === index ? 10 : 6,
               borderRadius: "50%",
               backgroundColor:
                 activeIndex === index

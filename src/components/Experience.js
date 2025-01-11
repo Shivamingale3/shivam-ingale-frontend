@@ -46,7 +46,6 @@ export default function Experience() {
         gap: 4,
       }}
     >
-      {/* Navigation Buttons & Title */}
       <Box
         sx={{
           width: "100%",
@@ -54,7 +53,7 @@ export default function Experience() {
           justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
-          gap: 2,
+          gap: 0.5,
         }}
       >
         <Button

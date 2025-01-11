@@ -11,7 +11,8 @@ const Root = styled.div`
   min-height: 100vh;
   min-width: 100vw;
   background-color: #000000;
-
+  justify-content: center;
+  align-items: center;
   @media (max-width: 900px) {
     flex-direction: column; /* Vertical layout for small devices */
     align-items: center;
@@ -31,14 +32,13 @@ export default function Home({ children }) {
           justifyContent: "center",
           alignItems: "center",
           flexBasis: "30%",
-          height: "100vh",
-          padding: { xs: "16px", sm: "20px", md: "24px", lg: "32px" },
-          maxWidth: { xs: "100%", sm: "100%", md: "30%", lg: "30%" },
-          minWidth: { xs: "100%", sm: "300px", md: "300px" },
+          height: "100%",
+          padding: "2%",
+          maxWidth: "30%",
           overflow: "hidden",
 
           "@media (max-width: 900px)": {
-            paddingTop: "100px",
+            paddingTop: "30%",
             flexBasis: "auto",
             maxWidth: "100%",
             height: "auto",
@@ -55,22 +55,23 @@ export default function Home({ children }) {
         color={"white"}
         sx={{
           flexBasis: "50%",
-          height: "100vh",
-          padding: { xs: "16px", sm: "20px", md: "24px", lg: "32px" },
+          height: "100%",
+          padding: "2%",
           overflowY: "auto",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          gap: "20px",
+          gap: "2%",
 
           "&::-webkit-scrollbar": { display: "none" },
           "-ms-overflow-style": "none",
           "scrollbar-width": "none",
 
           "@media (max-width: 900px)": {
+            paddingBottom: "20%",
             flexBasis: "auto",
-            height: "calc(100vh - 60px)", // Ensure space for sidebar
+            height: "calc(100vh - 10%)", // Ensure space for sidebar
             overflowY: "scroll",
           },
         }}
@@ -87,15 +88,15 @@ export default function Home({ children }) {
           justifyContent: "end",
           alignItems: "center",
           flexBasis: "20%",
-          height: "100vh",
-          paddingRight: { xs: "0", sm: "0", md: "1%", lg: "1%" },
-          maxWidth: { xs: "100%", sm: "100%", md: "20%", lg: "20%" },
+          height: "100%",
+          padding: "1%",
+          maxWidth: "20%",
           overflow: "hidden",
 
           "@media (max-width: 900px)": {
             position: "absolute",
             top: 0,
-            height: "60px",
+            height: "10%",
             maxWidth: "100%",
             width: "100%",
             zIndex: 10,
